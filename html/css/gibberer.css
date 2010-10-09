@@ -1,15 +1,16 @@
 @import "reset.css";
 
-body { overflow: hidden; }
+body { overflow: auto; }
 
-#container { height: 100%; width: 100%; display: block; padding: 15px; }
+#container { display: block; padding: 15px; }
 
 #container h1 { font: bold 2.2em/.8em arial; font-variant: small-caps; margin: 0 0 4px; }
 #container h2 { width: 300px; font: 1.05em/1em arial; font-style: italic; margin: 0 0 8px; padding: 0 0 8px; border-bottom: 1px dashed #000; }
 
-#container .chatContainer { width: 300px; height: 300px; padding: 10px; border: 2px solid #000; background: #eee; }
-
-	#container .chatContainer h3 { font: 1.6em/1em arial; font-style: italic; margin: 0 0 8px 0; }
+#container .chatContainer { width: 300px; height: 300px; padding: 10px; border: 2px solid #999; background: #eee; display: inline-block; }
+	#container .chatContainer h3 { font: 1.6em/1em arial; font-style: italic; margin: 0 0 8px 0; color: #999; }
+		#container .focusedChat { border: 2px solid #333; }
+		#container .focusedChat h3 { color: #333; }
 
 	.chatContainer .chats {
 	    width: 300px;
@@ -29,3 +30,5 @@ body { overflow: hidden; }
 	.chatContainer .pubmsg { width: 240px; border: solid 1px #999; margin: 0 0 8px; }
 	.chatContainer .label_username { width: 60px; color: #999; font: 1.1em arial; }
 	.chatContainer .username { width: 240px; margin: 0 0 8px; border: solid 1px #999; color: #00f; font: 1.1em arial; }
+	.chatContainer .pubsend { color: #999; }
+		.focusedChat .pubsend { color: #333; }
