@@ -8,7 +8,7 @@ body { overflow: auto; }
 #container h2 { width: 300px; font: 1.05em/1em arial; font-style: italic; margin: 0 0 8px; padding: 0 0 8px; border-bottom: 1px dashed #000; }
 
 #container .chatContainer { width: 300px; height: 300px; padding: 10px; border: 2px solid #999; background: #eee; display: inline-block; }
-	#container .chatContainer h3 { font: 1.6em/1em arial; font-style: italic; margin: 0 0 8px 0; color: #999; }
+	#container .chatContainer h3 { width: 300px; font: 1.6em/1em arial; font-style: italic; margin: 0 0 8px 0; color: #999; }
 		#container .focusedChat { border: 2px solid #333; }
 		#container .focusedChat h3 { color: #333; }
 
@@ -33,4 +33,4 @@ body { overflow: auto; }
 	.chatContainer .pubsend { color: #999; }
 		.focusedChat .pubsend { color: #333; }
 		
-	.chatContainer .titleFlop { height: 22px; border: 1px dashed #999; background-color: #fff; padding: 0; margin: -2px 0 4px 0px; font: 1.6em/1em arial; font-style: italic; color: #999; }
+	.chatContainer .titleFlop { height: 22px; width: 301px; border: 1px dashed #999; background: #efc; padding: 0; margin: -2px 0 4px 0px; font: 1.6em/1em arial; font-style: italic; color: #999; }
