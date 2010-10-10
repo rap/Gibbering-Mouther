@@ -63,21 +63,21 @@ titleFlop = function() {
 			// make the following evaluation scrape for spaces!
 			if ((event.keyCode == '13' || event.keyCode == undefined) && $(this).val()) {
 				var newTitle = $(this).val();
-				$(this).replaceWith('<h3 class="chatTitle">' + newTitle + '</h3>');
-				// this next line should ideally strip non-utf8 characters, non-websafe characters, executable script, et al.
-				// but... it doesn't!! because i am shitty at regex. but also because i am drunk!!
+				// these next lines would ideally strip non-utf8 characters, non-websafe characters, executable script, et al.
+				// but... they don't!! because i am shitty at regex. but also because i am drunk!!
 				// <3 swift
-				$(this).closest('.chatContainer').attr({'id' : newTitle.replace(" ", "-")});
+				$(this).closest('.chatContainer').attr({'id' : newTitle.replace(/\s/g, "-")});
+				$(this).replaceWith('<h3 class="chatTitle">' + newTitle + '</h3>');
 				titleFlop();
 			}
 		}).focusout(function(event) {
 			console.log('blurring');
 			var newTitle = $(this).val();
-			$(this).replaceWith('<h3 class="chatTitle">' + newTitle + '</h3>');
-			// this next line should ideally strip non-utf8 characters, non-websafe characters, executable script, et al.
-			// but... it doesn't!! because i am shitty at regex. but also because i am drunk!!
+			// these next lines would ideally strip non-utf8 characters, non-websafe characters, executable script, et al.
+			// but... they don't!! because i am shitty at regex. but also because i am drunk!!
 			// <3 swift
 			$(this).closest('.chatContainer').attr({'id' : newTitle.replace(" ", "-")});
+			$(this).replaceWith('<h3 class="chatTitle">' + newTitle + '</h3>');
 			titleFlop();
 		});
 	});
