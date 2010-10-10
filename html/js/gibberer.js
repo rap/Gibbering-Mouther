@@ -32,7 +32,18 @@ $(document).ready(function() {
     });
 
 	// JQUERY UI AWAYYYYYYYYY
-	$(".chatContainer" ).draggable({ stack: ".chatContainer" });
+	$(".chatContainer" ).draggable({ stack: ".chatContainer" }).resizable({
+		maxHeight: 2000,
+		maxWidth: 1000,
+		minHeight: 225,
+		minWidth: 195
+	}).resize(function() {
+		$(this).find('.chats').width($(this).width());
+		$(this).find('.chats').height($(this).height() - 91);
+		$(this).find('.chatPanel').width($(this).width());
+		$(this).find('.pubmsg').width($(this).width() - 55);
+		$(this).find('.username').width($(this).width() - 65);
+	});
 });
 
 viewportFit = function() {
