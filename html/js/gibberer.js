@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	viewportFit();
 	chatHandlers();
+	titleFlop();
 
     var client = new Faye.Client('http://localhost:8000/');
     // receive chat messages
@@ -53,4 +54,31 @@ chatHandlers = function() {
 		$(this).addClass('focusedChat');
 		$(this).find('.pubmsg').focus();
 	});	
+}
+
+titleFlop = function() {
+	$('.chatTitle').click(function() {
+		$(this).replaceWith('<input type="text" class="titleFlop" />');
+		$('.titleFlop').focus().keyup(function(event) {
+			// make the following evaluation scrape for spaces!
+			if ((event.keyCode == '13' || event.keyCode == undefined) && $(this).val()) {
+				var newTitle = $(this).val();
+				$(this).replaceWith('<h3 class="chatTitle">' + newTitle + '</h3>');
+				// this next line should ideally strip non-utf8 characters, non-websafe characters, executable script, et al.
+				// but... it doesn't!! because i am shitty at regex. but also because i am drunk!!
+				// <3 swift
+				$(this).closest('.chatContainer').attr({'id' : newTitle.replace(" ", "-")});
+				titleFlop();
+			}
+		}).focusout(function(event) {
+			console.log('blurring');
+			var newTitle = $(this).val();
+			$(this).replaceWith('<h3 class="chatTitle">' + newTitle + '</h3>');
+			// this next line should ideally strip non-utf8 characters, non-websafe characters, executable script, et al.
+			// but... it doesn't!! because i am shitty at regex. but also because i am drunk!!
+			// <3 swift
+			$(this).closest('.chatContainer').attr({'id' : newTitle.replace(" ", "-")});
+			titleFlop();
+		});
+	});
 }
